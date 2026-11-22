@@ -1,5 +1,9 @@
 package com.petcare.api.repositories;
 
-public class PetRepository {
-    
+import com.petcare.api.entities.Pet;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PetRepository extends JpaRepository<Pet, Long> {
+
 }
+

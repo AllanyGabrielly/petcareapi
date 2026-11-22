@@ -1,5 +1,9 @@
 package com.petcare.api.repositories;
 
-public class PlanoRepository {
-    
+import com.petcare.api.entities.Plano;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlanoRepository extends JpaRepository<Plano, Long> {
+
 }
+
