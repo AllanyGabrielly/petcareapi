@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "planos")
@@ -22,6 +23,7 @@ public class Plano {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal valorMensal;
 
+    @JsonManagedReference("plano-servicos")
     @OneToMany(mappedBy = "plano")
     private List<Servico> servicos = new ArrayList<>();
 

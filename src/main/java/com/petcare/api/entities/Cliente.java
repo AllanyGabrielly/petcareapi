@@ -3,6 +3,7 @@ package com.petcare.api.entities;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "clientes")
@@ -21,6 +22,7 @@ public class Cliente {
     @Column(nullable = false, length = 20)
     private String telefone;
 
+    @JsonManagedReference("cliente-pets")
     @OneToMany(mappedBy = "cliente")
     private List<Pet> pets = new ArrayList<>();
 

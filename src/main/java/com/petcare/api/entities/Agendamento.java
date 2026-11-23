@@ -2,6 +2,7 @@ package com.petcare.api.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "agendamentos")
@@ -17,10 +18,12 @@ public class Agendamento {
     @Column(nullable = false, length = 30)
     private String status;
 
+    @JsonBackReference("pet-agendamentos")
     @ManyToOne
     @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 
+    @JsonBackReference("servico-agendamentos")
     @ManyToOne
     @JoinColumn(name = "servico_id", nullable = false)
     private Servico servico;
